@@ -26,9 +26,35 @@ This project introduces a **hybrid framework** that dynamically selects the best
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ System Architecture
 
-Log Input → Regex / ML Model / LLM → Final Classification
+The following diagram illustrates how the hybrid classification pipeline dynamically selects the best approach based on log complexity:
+
+![Architecture](resources/architecture.png)
+
+### 🔍 Flow Explanation
+
+1. **Log Input** → Incoming log message
+
+2. **Regex Classification**
+
+   * If matched → ✅ Direct classification (fast path)
+   * If not matched → sent to next stage
+
+3. **Decision Layer**
+
+   * If sufficient labeled data exists → use ML model
+   * Otherwise → fallback to LLM
+
+4. **ML Classification (BERT / Sentence Transformer)**
+
+   * Handles complex but learnable patterns
+
+5. **LLM Classification**
+
+   * Handles ambiguous or unseen patterns
+
+👉 This hybrid flow ensures both **efficiency and robustness** in real-world scenarios.
 
 ---
 
