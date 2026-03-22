@@ -84,9 +84,3 @@ This project demonstrates:
 * Combining multiple AI approaches
 * Building deployable APIs
 
----
-
-## 👤 Author
-
-Anchal Pathania
-Data Science | Machine Learning | Analytics
